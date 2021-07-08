@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'CustomButton'
-}
+  name: "CustomButton",
+};
 </script>
 
 <style scoped>
@@ -21,7 +21,6 @@ export default {
   outline: none;
   transition: all 0.2s;
   margin: 15px;
-
 }
 .btn:hover {
   cursor: pointer;
