@@ -41,7 +41,7 @@ import CustomButton from "@/components/UI/CustomButton";
 import required from "vuelidate/lib/validators/required";
 import email from "vuelidate/lib/validators/email";
 import minLength from "vuelidate/lib/validators/minLength";
-import { isPhone, isID } from "@/validators"
+import { isPhone, isID } from "@/validators";
 
 export default {
   name: "ModalWindow",
@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       user: {
-        id: '',
+        id: "",
         firstName: "",
         lastName: "",
         phone: "",
@@ -75,10 +75,10 @@ export default {
       if (this.$v.user.$error) {
         return;
       }
-      this.user.id = Number( this.user.id )
+      this.user.id = Number(this.user.id);
       this.$store.commit("ADD_USERS", [this.user]);
       this.user = {
-        id: '',
+        id: "",
         firstName: "",
         lastName: "",
         phone: "",
