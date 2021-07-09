@@ -135,10 +135,10 @@ export default {
     searchedUsers() {
       return this.usersData.filter((user) => {
         return (
-          user.firstName.includes(this.searchByFirstName) &&
-          user.lastName.includes(this.searchByLastName) &&
-          user.email.includes(this.searchByEmail) &&
-          user.phone.includes(this.searchByPhone) &&
+          user.firstName.toLowerCase().includes(this.searchByFirstName.toLowerCase()) &&
+          user.lastName.toLowerCase().includes(this.searchByLastName.toLowerCase()) &&
+          user.email.toLowerCase().includes(this.searchByEmail.toLowerCase()) &&
+          user.phone.toLowerCase().includes(this.searchByPhone.toLowerCase()) &&
           (user.id === Number(this.searchByID) || Number(this.searchByID) === 0)
         );
       });
