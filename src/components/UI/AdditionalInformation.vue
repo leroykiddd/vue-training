@@ -8,26 +8,24 @@
     <div>
       Адрес проживания:
       <b>{{
-        user.address
+        user.address.streetAddress
           ? user.address.streetAddress
           : "Адресс проживания не указан"
       }}</b>
     </div>
     <div>
       Город:
-      <b>{{ user.address ? user.address.streetAddress : "Город не указан" }}</b>
+      <b>{{ user.address.city ? user.address.city : "Город не указан" }}</b>
     </div>
     <div>
       Провинция/штат:
       <b>{{
-        user.address ? user.address.streetAddress : "Провинция/штат не указаны"
+        user.address.state ? user.address.state : "Провинция/штат не указаны"
       }}</b>
     </div>
     <div>
       Индекс:
-      <b>{{
-        user.address ? user.address.streetAddress : "Индекс не указан"
-      }}</b>
+      <b>{{ user.address ? user.address.zip : "Индекс не указан" }}</b>
     </div>
   </div>
 </template>
