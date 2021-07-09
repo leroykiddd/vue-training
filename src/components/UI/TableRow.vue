@@ -1,5 +1,5 @@
 <template>
-  <div class="table__row">
+  <div class="table__row" @click="$emit('selectUser')">
     <div class="field">{{ userData.id }}</div>
     <div class="field">{{ userData.firstName }}</div>
     <div class="field">{{ userData.lastName }}</div>

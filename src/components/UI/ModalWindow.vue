@@ -31,7 +31,9 @@
         v-model="user.email"
         placeholder="email"
       />
-      <CustomButton @click="createUser">create</CustomButton>
+      <CustomButton @click="createUser" v-if="successInput"
+        >create</CustomButton
+      >
     </form>
   </div>
 </template>
@@ -71,10 +73,6 @@ export default {
   },
   methods: {
     createUser() {
-      this.$v.user.$touch();
-      if (this.$v.user.$error) {
-        return;
-      }
       this.user.id = Number(this.user.id);
       this.$store.commit("ADD_USERS", [this.user]);
       this.user = {
@@ -88,6 +86,12 @@ export default {
     },
     hideDialog() {
       this.$emit("hide");
+    },
+  },
+  computed: {
+    successInput() {
+      this.$v.user.$touch();
+      return !this.$v.user.$error;
     },
   },
 };

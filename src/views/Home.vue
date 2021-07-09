@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import CustomTable from "@/components/UI/CustomTable";
 import CustomButton from "@/components/UI/CustomButton";
 import axios from "axios";
@@ -31,8 +31,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["GET_SMALL_DATA", "GET_BIG_DATA"]),
-
     ...mapMutations(["SET_USERS", "ADD_USERS"]),
 
     async loadingBigData() {
@@ -43,7 +41,10 @@ export default {
           "http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}"
         )
         .then((response) => {
-          this.ADD_USERS(response.data);
+          this.SET_USERS(response.data);
+        })
+        .catch(() => {
+          alert("Ошибка на сервере! попробуйте позже!");
         });
       this.isLoading = false;
       this.isLoaded = true;
@@ -57,7 +58,10 @@ export default {
           "http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}"
         )
         .then((response) => {
-          this.ADD_USERS(response.data);
+          this.SET_USERS(response.data);
+        })
+        .catch(() => {
+          alert("Ошибка на сервере! попробуйте позже!");
         });
       this.isLoaded = true;
       this.isLoading = false;
